@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 
 import '/backend/backend.dart';
 
-import '/backend/supabase/supabase.dart';
-
 import '../../flutter_flow/place.dart';
 import '../../flutter_flow/uploaded_file.dart';
 
@@ -91,9 +89,6 @@ String? serializeParam(
 
       case ParamType.DataStruct:
         return param is BaseStruct ? param.serialize() : null;
-
-      case ParamType.SupabaseRow:
-        return json.encode((param as SupabaseDataRow).data);
 
       default:
         return null;
@@ -184,7 +179,6 @@ enum ParamType {
   Document,
   DocumentReference,
   DataStruct,
-  SupabaseRow,
 }
 
 dynamic deserializeParam<T>(
@@ -245,63 +239,6 @@ dynamic deserializeParam<T>(
         return json.decode(param);
       case ParamType.DocumentReference:
         return _deserializeDocumentReference(param, collectionNamePath ?? []);
-
-      case ParamType.SupabaseRow:
-        final data = json.decode(param) as Map<String, dynamic>;
-        switch (T) {
-          case ECategoriesRow:
-            return ECategoriesRow(data);
-          case EUserInfoRow:
-            return EUserInfoRow(data);
-          case AUsersRow:
-            return AUsersRow(data);
-          case FirebaseProductsRow:
-            return FirebaseProductsRow(data);
-          case UserprofileviewRow:
-            return UserprofileviewRow(data);
-          case EOrderItemsRow:
-            return EOrderItemsRow(data);
-          case ZChatsRow:
-            return ZChatsRow(data);
-          case AHttpViewRow:
-            return AHttpViewRow(data);
-          case AOrdersRow:
-            return AOrdersRow(data);
-          case AAirtableRow:
-            return AAirtableRow(data);
-          case CarsRow:
-            return CarsRow(data);
-          case ZChatUsersRow:
-            return ZChatUsersRow(data);
-          case WrappersFdwStatsRow:
-            return WrappersFdwStatsRow(data);
-          case APurchasedRow:
-            return APurchasedRow(data);
-          case EReviewsRow:
-            return EReviewsRow(data);
-          case EOrderItemsViewRow:
-            return EOrderItemsViewRow(data);
-          case ZChatMessagesRow:
-            return ZChatMessagesRow(data);
-          case CarInfoRow:
-            return CarInfoRow(data);
-          case EProductsRow:
-            return EProductsRow(data);
-          case EOrdersRow:
-            return EOrdersRow(data);
-          case ZChatSummaryRow:
-            return ZChatSummaryRow(data);
-          case SwipesRow:
-            return SwipesRow(data);
-          case EProductDetailViewRow:
-            return EProductDetailViewRow(data);
-          case FirebaseUsersRow:
-            return FirebaseUsersRow(data);
-          case ZUsersInfoRow:
-            return ZUsersInfoRow(data);
-          default:
-            return null;
-        }
 
       case ParamType.DataStruct:
         final data = json.decode(param) as Map<String, dynamic>? ?? {};
