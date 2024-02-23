@@ -7,7 +7,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 import 'assistant_model.dart';
 export 'assistant_model.dart';
@@ -28,11 +27,6 @@ class _AssistantWidgetState extends State<AssistantWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AssistantModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      context.pushNamed('Imagechat');
-    });
   }
 
   @override

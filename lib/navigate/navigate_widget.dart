@@ -51,8 +51,8 @@ class _NavigateWidgetState extends State<NavigateWidget> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               FFButtonWidget(
-                onPressed: () async {
-                  context.pushNamed('Imagechat');
+                onPressed: () {
+                  print('Button pressed ...');
                 },
                 text: 'Image Chat',
                 options: FFButtonOptions(

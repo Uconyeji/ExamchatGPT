@@ -81,11 +81,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               appStateNotifier.loggedIn ? const NavigateWidget() : const SignupWidget(),
         ),
         FFRoute(
-          name: 'Imagechat',
-          path: '/imagechat',
-          builder: (context, params) => const ImagechatWidget(),
-        ),
-        FFRoute(
           name: 'assistant',
           path: '/assistant',
           builder: (context, params) => const AssistantWidget(),
